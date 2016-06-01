@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" class="page" loaded="pageLoaded" actionbarhidden="true">
+    <StackLayout>
+        <Image id="image" row="0" col="0" src="res://lolguy" stretch="none" class="shatteritem" style="background-color: #333;; padding: 10" />
+        <Button id="button1" text="Press to shatter" row="1"  class="shatteritem" />
+        <Button id="button2" text="Press to shatter" row="2"  class="shatteritem" />
+    </StackLayout>
+</Page>

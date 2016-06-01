@@ -1,0 +1,30 @@
+{
+	"name": "ShattervewDemo",
+	"main": "app.js",
+	"version": "0.0.1",
+	"author": {
+		"name": "Steve McNiven-Scott",
+		"email": "steve@sitefinitysteve.com",
+		"url": "https://github.com/sitefinitysteve"
+	},
+  	"description": "Break your views into pieces demo",
+	"license": "Apache-2.0",
+	"keywords": [
+		"NativeScript",
+		"Shatterview",
+		"Brokenview",
+		"sitefinitysteve",
+		"Android"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sitefinitysteve/nativescript-shatterview.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sitefinitysteve/nativescript-shatterview/issues"
+	},
+	"homepage": "https://github.com/sitefinitysteve/nativescript-shatterview",
+	"android": {
+		"v8Flags": "--expose_gc"
+	}
+}

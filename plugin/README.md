@@ -6,6 +6,8 @@ Make sure to hold down on the view item to see the effect... the cracks start th
 
 <img src="https://raw.githubusercontent.com/zhanyongsheng/raw/master/BrokenView/image/demo.gif" />
 
+> Works awesome on device, geny throws lots of cancel events for some reason
+
 ## Usage
 ``` js
 var shatterview = require("nativescript-shatterview");
@@ -39,6 +41,20 @@ exports.pageLoaded = function (args) {
 ## Methods
 * allowShatter(view);
 * allowShatter(view, options);
+
+## Events
+```
+    // Args returns the view being maniupulated
+    shatterview.on("start", function (args) {
+        console.log("Break started");
+    });
+```
+* start
+* cancel 
+* cancelEnd 
+* restart 
+* falling 
+* fallingEnd
 
 So you don't handle a tap event to shatter, you make something shatterable and the click\tap is done automatically by the plugin.
 

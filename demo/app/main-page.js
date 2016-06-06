@@ -8,7 +8,32 @@ var page;
 exports.pageLoaded = function (args) {
     page = args.object;
     page.bindingContext = viewModel;
- 
+    
+    //Wire up events
+    shatterview.on("start", function (args) {
+        console.log("Start");
+    });
+    
+    shatterview.on("cancel", function (args) {
+        console.log("Cancel");
+    });
+    
+    shatterview.on("cancelEnd", function (args) {
+        console.log("CancelEnd");
+    });
+    
+    shatterview.on("restart", function (args) {
+        console.log("Restart");
+    });
+    
+    shatterview.on("falling", function (args) {
+        console.log("Falling");
+    });
+    
+    shatterview.on("fallingEnd", function (args) {
+        console.log("FallingEnd");    
+    });
+    
     var image = page.getViewById("image");
     shatterview.allowShatter(image, {
                                         complexity: 12,

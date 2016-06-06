@@ -4,6 +4,9 @@
 
 ## Release Notes
 
+### 0.1.5
+* Event system
+
 ### 0.1.4
 * Callback support
 

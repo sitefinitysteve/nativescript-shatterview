@@ -1,6 +1,6 @@
 {
   "name": "nativescript-shatterview",
-  "version": "v0.1.4",
+  "version": "v0.1.5",
   "description": "Break your views into pieces",
   "main": "index.js",
   "nativescript": {

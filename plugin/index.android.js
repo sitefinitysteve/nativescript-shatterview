@@ -2,6 +2,13 @@ var app = require("application");
 var callback = null;
 var brokenView = null;
 
+var _callbacks = {start: [], 
+                   cancel: [], 
+                   cancelEnd: [], 
+                   restart: [], 
+                   falling: [], 
+                   fallingEnd: []
+                };
 
     //complexity: 12, //Default 12, range 6-20
     //breakDuration: 700, //Min: 200
@@ -21,6 +28,25 @@ exports.allowShatter = function (view, options) {
     else
         console.log("Unable to shatter an undefined view");
 }
+
+exports.on = function (event, callback) {
+    addEventListener(event, callback);
+}
+
+function addEventListener(event, callback) {
+    if (!Array.isArray(_callbacks[event])) {
+        throw new Error("addEventListener passed an invalid event type " + event);
+    }
+    _callbacks[event].push({c: callback});
+};
+
+function _notify(event, data) {
+    var eventCallbacks = _callbacks[event];
+   for (var i =0; i < eventCallbacks.length; i++) {
+        eventCallbacks[i].c.call(this, data);
+   }
+};
+
 
 function buildListener(options){
     var listener = new com.zys.brokenview.BrokenTouchListener.Builder(brokenView);
@@ -51,22 +77,28 @@ function checkInit() {
         
         callback = com.zys.brokenview.BrokenCallback.extend({
             onStart: function (view) {
-                console.log("Start");
+                _notify("start", view);
+                //console.log("Start");
             },
             onCancel: function (view) {
-                console.log("Cancel");
+                _notify("cancel", view);
+                //console.log("Cancel");
             },
             onCancelEnd: function (view) {
-                console.log("CancelEnd");
+                _notify("cancelEnd", view);
+                //console.log("CancelEnd");
             },
             onRestart: function (view) {
-                console.log("Restart");
+                _notify("restart", view);
+                //console.log("Restart");
             },
             onFalling: function (view) {
-                console.log("Falling");
+                _notify("falling", view);
+                //console.log("Falling");
             },
             onFallingEnd: function (view) {
-                console.log("FallingEnd");
+                _notify("fallingEnd", view);
+                //console.log("FallingEnd");
             },
         });
         
